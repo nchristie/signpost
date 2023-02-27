@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TermUrl < ApplicationRecord
   belongs_to :written_term
   belongs_to :video_url

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateWrittenTerms < ActiveRecord::Migration[7.0]
   def change
     create_table :written_terms do |t|
