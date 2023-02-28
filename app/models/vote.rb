@@ -2,5 +2,5 @@
 
 class Vote < ApplicationRecord
   belongs_to :url_category
-  belongs_to :term_url
+  belongs_to :url_term
 end

@@ -23,13 +23,13 @@ bsl_purple = VideoUrl.create(url: 'https://www.youtube.com/embed/i-IF86y1z1k?sta
 asl_purple = VideoUrl.create(url: 'https://www.youtube.com/embed/Sh6W7OOfnoQ?start=5&end=10', approved: false)
 dgs_lila = VideoUrl.create(url: 'https://www.youtube.com/embed/AdiPcBQCSF4?start=102&end=107', approved: false)
 
-# TermUrls
-makaton_milk_depicts_milk = TermUrl.create(video_url: makaton_milk, written_term: milk)
-makaton_purple_depicts_purple = TermUrl.create(video_url: makaton_purple, written_term: purple)
-bsl_purple_depicts_purple = TermUrl.create(video_url: bsl_purple, written_term: purple)
-asl_purple_depicts_purple = TermUrl.create(video_url: asl_purple, written_term: purple)
-dgs_lila_depicts_purple = TermUrl.create(video_url: dgs_lila, written_term: purple)
-dgs_lila_depitcs_lila = TermUrl.create(video_url: dgs_lila, written_term: lila)
+# UrlTerms
+makaton_milk_depicts_milk = UrlTerm.create(video_url: makaton_milk, written_term: milk)
+makaton_purple_depicts_purple = UrlTerm.create(video_url: makaton_purple, written_term: purple)
+bsl_purple_depicts_purple = UrlTerm.create(video_url: bsl_purple, written_term: purple)
+asl_purple_depicts_purple = UrlTerm.create(video_url: asl_purple, written_term: purple)
+dgs_lila_depicts_purple = UrlTerm.create(video_url: dgs_lila, written_term: purple)
+dgs_lila_depitcs_lila = UrlTerm.create(video_url: dgs_lila, written_term: lila)
 
 # UrlCategories
 makaton_milk_is_in_makaton = UrlCategory.create(category: makaton, video_url: makaton_milk)
@@ -39,5 +39,5 @@ asl_purple_is_in_asl = UrlCategory.create(category: asl, video_url: asl_purple)
 dgs_lila_is_in_dgs = UrlCategory.create(category: dgs, video_url: dgs_lila)
 
 # Votes
-Vote.create(term_url: makaton_milk_depicts_milk, url_category: makaton_milk_is_in_makaton, up_votes: 5, down_votes: 1)
-Vote.create(term_url: makaton_milk_depicts_milk, url_category: makaton_milk_is_in_makaton, up_votes: 5, down_votes: 1)
+Vote.create(url_term: makaton_milk_depicts_milk, url_category: makaton_milk_is_in_makaton, up_votes: 5, down_votes: 1)
+Vote.create(url_term: makaton_milk_depicts_milk, url_category: makaton_milk_is_in_makaton, up_votes: 5, down_votes: 1)
