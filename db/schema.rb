@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_25_032012) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_054145) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,15 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_25_032012) do
     t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
-  create_table "term_urls", force: :cascade do |t|
-    t.bigint "written_term_id", null: false
-    t.bigint "video_url_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["video_url_id"], name: "index_term_urls_on_video_url_id"
-    t.index ["written_term_id"], name: "index_term_urls_on_written_term_id"
-  end
-
   create_table "url_categories", force: :cascade do |t|
     t.bigint "category_id", null: false
     t.bigint "video_url_id", null: false
@@ -37,6 +28,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_25_032012) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_url_categories_on_category_id"
     t.index ["video_url_id"], name: "index_url_categories_on_video_url_id"
+  end
+
+  create_table "url_terms", force: :cascade do |t|
+    t.bigint "written_term_id", null: false
+    t.bigint "video_url_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["video_url_id"], name: "index_url_terms_on_video_url_id"
+    t.index ["written_term_id"], name: "index_url_terms_on_written_term_id"
   end
 
   create_table "video_urls", force: :cascade do |t|
@@ -51,11 +51,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_25_032012) do
     t.integer "up_votes"
     t.integer "down_votes"
     t.bigint "url_category_id", null: false
-    t.bigint "term_url_id", null: false
+    t.bigint "url_term_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["term_url_id"], name: "index_votes_on_term_url_id"
     t.index ["url_category_id"], name: "index_votes_on_url_category_id"
+    t.index ["url_term_id"], name: "index_votes_on_url_term_id"
   end
 
   create_table "written_languages", force: :cascade do |t|
@@ -73,11 +73,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_25_032012) do
     t.index ["written_language_id"], name: "index_written_terms_on_written_language_id"
   end
 
-  add_foreign_key "term_urls", "video_urls"
-  add_foreign_key "term_urls", "written_terms"
   add_foreign_key "url_categories", "categories"
   add_foreign_key "url_categories", "video_urls"
-  add_foreign_key "votes", "term_urls"
+  add_foreign_key "url_terms", "video_urls"
+  add_foreign_key "url_terms", "written_terms"
   add_foreign_key "votes", "url_categories"
+  add_foreign_key "votes", "url_terms"
   add_foreign_key "written_terms", "written_languages"
 end
