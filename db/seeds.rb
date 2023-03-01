@@ -39,5 +39,6 @@ asl_purple_is_in_asl = UrlCategory.create(category: asl, video_url: asl_purple)
 dgs_lila_is_in_dgs = UrlCategory.create(category: dgs, video_url: dgs_lila)
 
 # Votes
-Vote.create(url_term: makaton_milk_depicts_milk, url_category: makaton_milk_is_in_makaton, up_votes: 5, down_votes: 1)
-Vote.create(url_term: makaton_milk_depicts_milk, url_category: makaton_milk_is_in_makaton, up_votes: 5, down_votes: 1)
+Vote.create(url_term: makaton_milk_depicts_milk, url_category: makaton_milk_is_in_makaton)
+Vote.create(url_term: dgs_lila_depicts_purple, url_category: dgs_lila_is_in_dgs)
+Vote.create(url_term: dgs_lila_depitcs_lila, url_category: dgs_lila_is_in_dgs)
