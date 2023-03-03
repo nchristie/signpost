@@ -16,12 +16,12 @@ purple = WrittenTerm.create(name: 'purple', written_language: written_english)
 lila = WrittenTerm.create(name: 'lila', written_language: written_german)
 
 # VideoUrls
-makaton_milk = VideoUrl.create(url: 'https://youtube.com/embed/ZOPTI7aG3iI?start=4&end=7', approved: false)
+makaton_milk = VideoUrl.create(url: 'https://youtube.com/embed/ZOPTI7aG3iI?start=4&end=7')
 # purple
-makaton_purple = VideoUrl.create(url: 'https://www.youtube.com/embed/fZaPigFJFd8?start=31&end=36', approved: false)
-bsl_purple = VideoUrl.create(url: 'https://www.youtube.com/embed/i-IF86y1z1k?start=67&end=72', approved: false)
-asl_purple = VideoUrl.create(url: 'https://www.youtube.com/embed/Sh6W7OOfnoQ?start=5&end=10', approved: false)
-dgs_lila = VideoUrl.create(url: 'https://www.youtube.com/embed/AdiPcBQCSF4?start=102&end=107', approved: false)
+makaton_purple = VideoUrl.create(url: 'https://www.youtube.com/embed/fZaPigFJFd8?start=31&end=36')
+bsl_purple = VideoUrl.create(url: 'https://www.youtube.com/embed/i-IF86y1z1k?start=67&end=72')
+asl_purple = VideoUrl.create(url: 'https://www.youtube.com/embed/Sh6W7OOfnoQ?start=5&end=10')
+dgs_lila = VideoUrl.create(url: 'https://www.youtube.com/embed/AdiPcBQCSF4?start=102&end=107')
 
 # UrlTerms
 makaton_milk_depicts_milk = UrlTerm.create(video_url: makaton_milk, written_term: milk)

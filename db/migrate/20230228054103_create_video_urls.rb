@@ -4,7 +4,7 @@ class CreateVideoUrls < ActiveRecord::Migration[7.0]
   def change
     create_table :video_urls do |t|
       t.text :url
-      t.boolean :approved
+      t.boolean :approved, default: false
 
       t.timestamps
     end
