@@ -4,4 +4,6 @@ class UrlCategory < ApplicationRecord
   belongs_to :category
   belongs_to :video_url
   has_many :vote
+
+  accepts_nested_attributes_for :category
 end
