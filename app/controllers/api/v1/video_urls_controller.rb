@@ -36,6 +36,29 @@ module Api
         head :no_content
       end
 
+      def find_urls
+        written_language_name = params[:written_language]
+        written_term_name = params[:written_term]
+        category = params[:category]
+        written_term = WrittenTerm.find_by(name: written_term_name)
+
+        if written_term
+          video_url = VideoUrl.joins(url_term: { written_term: :written_language }, url_category: :category)
+                              .where(written_terms: { name: written_term_name })
+                              .where(categories: { name: category })
+                              .where(written_languages: { name: written_language_name })
+                              .first
+          if video_url
+            render json: { url: video_url.url }
+          else
+            render json: { error: "No video URLs found for written term #{written_term_name} and category #{category}" },
+                   status: :not_found
+          end
+        else
+          render json: { error: "Written term #{written_term_name} not found" }, status: :not_found
+        end
+      end
+
       private
 
       def set_video_url
