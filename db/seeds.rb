@@ -20,7 +20,7 @@ makaton_milk = VideoUrl.create(url: 'https://youtube.com/embed/ZOPTI7aG3iI?start
 # purple
 makaton_purple = VideoUrl.create(url: 'https://www.youtube.com/embed/fZaPigFJFd8?start=31&end=36')
 bsl_purple = VideoUrl.create(url: 'https://www.youtube.com/embed/i-IF86y1z1k?start=67&end=72')
-bsl_purple_alt = VideoUrl.create(url: 'https://www.youtube.com/watch?v=w3CV1wvghmo')
+bsl_purple_alt = VideoUrl.create(url: 'https://www.youtube.com/embed/w3CV1wvghmo?start=07&end=2')
 asl_purple = VideoUrl.create(url: 'https://www.youtube.com/embed/Sh6W7OOfnoQ?start=5&end=10')
 dgs_lila = VideoUrl.create(url: 'https://www.youtube.com/embed/AdiPcBQCSF4?start=102&end=107')
 
