@@ -38,7 +38,7 @@ module Api
 
       def find_urls
         written_language_name = params[:written_language]
-        written_term_name = params[:written_term]
+        written_term_name = params[:written_term].downcase
         category = params[:category]
         written_term = WrittenTerm.find_by(name: written_term_name)
       
