@@ -41,13 +41,13 @@ module Api
         written_term_name = params[:written_term].downcase
         category = params[:category]
         written_term = WrittenTerm.find_by(name: written_term_name)
-      
+
         if written_term
           video_urls = VideoUrl.joins(url_term: { written_term: :written_language }, url_category: :category)
-                              .where(written_terms: { name: written_term_name })
-                              .where(categories: { name: category })
-                              .where(written_languages: { name: written_language_name })
-                              .pluck(:url)
+                               .where(written_terms: { name: written_term_name })
+                               .where(categories: { name: category })
+                               .where(written_languages: { name: written_language_name })
+                               .pluck(:url)
           if video_urls.any?
             render json: { urls: video_urls }
           else
@@ -58,7 +58,6 @@ module Api
           render json: { error: "Written term #{written_term_name} not found" }, status: :not_found
         end
       end
-      
 
       private
 
