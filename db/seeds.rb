@@ -8,7 +8,7 @@ written_german = WrittenLanguage.create(name: 'Deutsch')
 makaton = Category.create(name: 'Makaton')
 bsl = Category.create(name: 'British Sign Language')
 asl = Category.create(name: 'American Sign Language')
-dgs = Category.create(name: 'Deutsche Gebärdensprache')
+dgs = Category.create(name: 'Deutsche Gebaerdensprache')
 
 # WrittenTerms
 milk = WrittenTerm.create(name: 'milk', written_language: written_english)
@@ -27,9 +27,12 @@ dgs_lila = VideoUrl.create(url: 'https://www.youtube.com/embed/AdiPcBQCSF4?start
 # UrlTerms
 makaton_milk_depicts_milk = UrlTerm.create(video_url: makaton_milk, written_term: milk)
 makaton_purple_depicts_purple = UrlTerm.create(video_url: makaton_purple, written_term: purple)
+makaton_purple_depicts_lila = UrlTerm.create(video_url: makaton_purple, written_term: lila)
 bsl_purple_depicts_purple = UrlTerm.create(video_url: bsl_purple, written_term: purple)
+bsl_purple_depicts_lila = UrlTerm.create(video_url: bsl_purple, written_term: lila)
 bsl_purple_alt_depicts_purple = UrlTerm.create(video_url: bsl_purple_alt, written_term: purple)
 asl_purple_depicts_purple = UrlTerm.create(video_url: asl_purple, written_term: purple)
+asl_purple_depicts_lila = UrlTerm.create(video_url: asl_purple, written_term: lila)
 dgs_lila_depicts_purple = UrlTerm.create(video_url: dgs_lila, written_term: purple)
 dgs_lila_depitcs_lila = UrlTerm.create(video_url: dgs_lila, written_term: lila)
 
