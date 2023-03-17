@@ -50,3 +50,5 @@ group :development do
   gem 'rails-erd', require: false
   gem 'rubocop-rails', require: false
 end
+
+gem 'nio4r', '2.5.8'
