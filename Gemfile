@@ -51,4 +51,5 @@ group :development do
   gem 'rubocop-rails', require: false
 end
 
-gem 'nio4r', '2.5.8'
+# Ubuntu
+gem 'actioncable', '~> 7.0', '>= 7.0.4.3'
