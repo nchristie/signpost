@@ -53,3 +53,5 @@ end
 
 # Ubuntu
 gem 'actioncable', '~> 7.0', '>= 7.0.4.3'
+
+gem 'csv'

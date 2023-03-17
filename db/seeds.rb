@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'csv'
+
 # WrittenLanguages
 written_english = WrittenLanguage.create(name: 'English')
 written_german = WrittenLanguage.create(name: 'Deutsch')
@@ -53,43 +55,25 @@ Vote.create(url_term: asl_purple_depicts_purple, url_category: asl_purple_is_in_
 Vote.create(url_term: dgs_lila_depicts_purple, url_category: dgs_lila_is_in_dgs)
 Vote.create(url_term: dgs_lila_depitcs_lila, url_category: dgs_lila_is_in_dgs)
 
-# # Bunch of stuff:
-# english_terms_youtube_ids_start_end = [
-#   ['hello', '', '', ''],
-#   ['more', '', '', ''],
-#   ['strawberry', '', '', ''],
-#   ['yes', '', '', ''],
-#   ['no', '', '', ''],
-#   ['hide', '', '', ''],
-#   ['come', '', '', ''],
-#   ['food', '', '', ''],
-#   ['pain', '', '', ''],
-#   ['where', 'https://www.youtube.com/watch?v=Ta2auSPxikY', '', ''],
-#   ['who', '', '', ''],
-#   ['what', '', '', ''],
-#   ['how', '', '', '']
-# ]
 
+table = CSV.parse(File.read("db/links_formatted.csv"), headers: false, col_sep: ',')
 
+# Define the category and written language
+category = Category.find_by(name: 'British Sign Language')
+language = WrittenLanguage.find_by(name: 'English')
 
-# english_terms_and_bsl_videos =
+# Loop through the array and create a new UrlTerm for each element
+table.each do |element|
+  # Extract the written term and video URL from the element
+  written_term_name, video_url_str = element
 
-# # Define the category and written language
-# category = Category.find_by(name: 'British Sign Language')
-# language = WrittenLanguage.find_by(name: 'English')
+  # Create a new VideoUrl with the provided URL
+  video_url = VideoUrl.find_or_create_by(url: video_url_str, approved: true)
 
-# # Loop through the array and create a new UrlTerm for each element
-# english_terms_and_bsl_videos.each do |element|
-#   # Extract the written term and video URL from the element
-#   written_term_name, video_url_str = element
+  # Create a new WrittenTerm with the provided name and language
+  written_term = WrittenTerm.find_or_create_by(name: written_term_name, written_language: language)
 
-#   # Create a new VideoUrl with the provided URL
-#   video_url = VideoUrl.find_or_create_by(url: video_url_str, approved: true)
-
-#   # Create a new WrittenTerm with the provided name and language
-#   written_term = WrittenTerm.find_or_create_by(name: written_term_name, written_language: language)
-
-#   # Create a new UrlTerm with the newly created VideoUrl and WrittenTerm, and assign it to the desired category
-#   UrlTerm.create(video_url:, written_term:,
-#                  url_categories: [UrlCategory.new(category:)])
-# end
+  # Create a new UrlTerm with the newly created VideoUrl and WrittenTerm, and assign it to the desired category
+  UrlTerm.create(video_url: video_url, written_term: written_term)
+  UrlCategory.create(category: category, video_url: video_url)
+end
