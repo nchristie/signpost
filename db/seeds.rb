@@ -71,7 +71,7 @@ table.each do |element|
   video_url = VideoUrl.find_or_create_by(url: video_url_str, approved: true)
 
   # Create a new WrittenTerm with the provided name and language
-  written_term = WrittenTerm.find_or_create_by(name: written_term_name, written_language: language)
+  written_term = WrittenTerm.find_or_create_by(name: written_term_name.downcase, written_language: language)
 
   # Create a new UrlTerm with the newly created VideoUrl and WrittenTerm, and assign it to the desired category
   UrlTerm.create(video_url: video_url, written_term: written_term)
