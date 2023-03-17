@@ -56,7 +56,6 @@ Vote.create(url_term: dgs_lila_depitcs_lila, url_category: dgs_lila_is_in_dgs)
 # # Bunch of stuff:
 # english_terms_youtube_ids_start_end = [
 #   ['hello', '', '', ''],
-#   ['toothbrush', '', '', ''],
 #   ['more', '', '', ''],
 #   ['strawberry', '', '', ''],
 #   ['yes', '', '', ''],
@@ -70,6 +69,8 @@ Vote.create(url_term: dgs_lila_depitcs_lila, url_category: dgs_lila_is_in_dgs)
 #   ['what', '', '', ''],
 #   ['how', '', '', '']
 # ]
+
+
 
 # english_terms_and_bsl_videos =
 
