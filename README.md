@@ -3,7 +3,8 @@ API for finding urls to sign language videos
 
 ## Working with this repo
 
-### Prerequisites:
+### Prerequisites
+
 - postgresql
 - a ruby environment manager (such as rbenv or rvm)
 
