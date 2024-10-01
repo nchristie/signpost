@@ -6,8 +6,16 @@ module Api
       before_action :set_video_url, only: %i[show update destroy]
 
       def index
-        @video_urls = VideoUrl.all
-        render json: @video_urls
+        @video_urls = VideoUrl.page(params[:page]).per(params[:per_page] || 5)
+        render json: {
+          video_urls: @video_urls,
+          meta: {
+            total_pages: @video_urls.total_pages,
+            current_page: @video_urls.current_page,
+            next_page: @video_urls.next_page,
+            prev_page: @video_urls.prev_page
+          }
+        }
       end
 
       def show
